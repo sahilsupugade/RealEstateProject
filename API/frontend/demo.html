@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Real Estate Price Prediction</title>
+
+    <link rel="stylesheet" href="democss.css">
+
+    <!-- Select2 CSS (kept) -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- jQuery + Select2 (kept) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+
+<body>
+    <!-- Banner -->
+    <header class="hero-banner">
+        <img src="https://images.wallpaperscraft.com/image/single/buildings_night_city_road_168957_1920x1080.jpg"
+            alt="Hero background">
+        <div class="hero-text">
+            <h1>Real Estate Property Price Prediction</h1>
+            <p>Enter property details and get a reliable ML-based price estimate — fast.</p>
+        </div>
+    </header>
+
+    <!-- TABS -->
+    <div class="tab-container">
+        <button class="tab-btn active-tab" data-target="tab1">Price Prediction</button>
+        <button class="tab-btn" data-target="tab2">Insights Dashboard</button>
+    </div>
+
+    <!-- TAB CONTENT: PRICE PREDICTION -->
+    <main id="tab1" class="tab-content active-tab-content">
+
+        <!-- SECTION: Property Details -->
+        <section class="card section-property">
+            <div class="section-head">
+                <div class="section-icon"> <span class="material-icons">home</span> </div>
+                <div>
+                    <h2>Property Details</h2>
+                    <p class="muted">Enter the property information to get an accurate price prediction</p>
+                </div>
+            </div>
+
+            <form id="amenityForm" class="grid-form" onsubmit="submitData(event)">
+
+                <!-- Row 1: Carpet / Bedrooms / Bathrooms / Balcony -->
+                <div class="form-row">
+                    <div class="form-item">
+                        <label for="carpetarea">Carpet Area (sq.ft)</label>
+                        <input type="number" id="carpetarea" placeholder="e.g. 1200">
+                    </div>
+
+                    <div class="form-item">
+                        <label for="bedroom">Bedrooms</label>
+                        <input type="number" id="bedroom" placeholder="e.g. 2">
+                    </div>
+
+                    <div class="form-item">
+                        <label for="bathroom">Bathrooms</label>
+                        <input type="number" id="bathroom" placeholder="e.g. 1">
+                    </div>
+
+                    <div class="form-item">
+                        <label for="balcony">Balcony</label>
+                        <input type="number" id="balcony" placeholder="e.g. 1">
+                    </div>
+                </div>
+
+                <!-- Row 2: Facing / Furnish / Property Type -->
+                <div class="form-row">
+                    <div class="form-item">
+                        <label for="facing">Facing Direction</label>
+                        <select id="facing">
+                            <option>East</option>
+                            <option>West</option>
+                            <option>North-East</option>
+                            <option selected>North</option>
+                            <option>North-West</option>
+                            <option>South</option>
+                            <option>South-West</option>
+                            <option>South-East</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="furnish_type">Furnish Type</label>
+                        <select id="furnish_type">
+                            <option>Semifurnished</option>
+                            <option>Unfurnished</option>
+                            <option>Furnished</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="prop_type">Property Type</label>
+                        <select id="prop_type">
+                            <option>House</option>
+                            <option selected>Flat</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="city">City</label>
+                        <select id="city">
+                            <option selected>Mumbai</option>
+                            <option>Thane</option>
+                            <option>Navi Mumbai</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Row 3: Ageing / Floor Level / (spacer) -->
+                <div class="form-row">
+                    <div class="form-item">
+                        <label for="ageing">Property Age</label>
+                        <select id="ageing">
+                            <option value="">-- Select --</option>
+                            <option>Relatively New</option>
+                            <option>Old</option>
+                            <option>New</option>
+                            <option>Relatively Old</option>
+                            <option>Undefined</option>
+                            <option>Under Construction</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="floor_level">Floor Level</label>
+                        <select id="floor_level">
+                            <option value="">-- Select --</option>
+                            <option>Low Floor</option>
+                            <option>Mid Floor</option>
+                            <option>High Floor</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item checkbox-field">
+                        <label>&nbsp;</label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="store_room">
+                            <span>Property has a Store Room</span>
+                        </label>
+                    </div>
+
+
+                    <div class="form-item form-item--wide"></div>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- SECTION: Location -->
+        <section class="card section-location">
+            <div class="section-head">
+                <div class="section-icon"> <span class="material-icons">place</span> </div>
+                <div>
+                    <h2>Location</h2>
+                    <p class="muted">Select a location and mark if the property has a store room</p>
+                </div>
+            </div>
+
+            <div class="location-content">
+                <label for="area" class="label-inline">Select Location</label>
+
+                <select id="area" style="width:100%;">
+                    <option value="">-- Select a location --</option>
+                    <option value="Kandivali">Kandivali</option>
+                    <option value="Thane">Thane</option>
+                    <option value="Powai">Powai</option>
+                    <option value="Andheri">Andheri</option>
+                    <option value="Malad">Malad</option>
+                    <option value="Chembur">Chembur</option>
+                    <option value="Others">Others</option>
+                    <option value="Goregaon">Goregaon</option>
+                    <option value="Borivali">Borivali</option>
+                    <option value="Mulund">Mulund</option>
+                    <option value="Ghatkopar">Ghatkopar</option>
+                    <option value="Vasai-Virar">Vasai-Virar</option>
+                    <option value="Wadala">Wadala</option>
+                    <option value="Kalyan-Dombivli">Kalyan-Dombivli</option>
+                    <option value="Santacruz">Santacruz</option>
+                    <option value="Bhandup">Bhandup</option>
+                    <option value="Kharghar">Kharghar</option>
+                    <option value="Parel">Parel</option>
+                    <option value="Worli">Worli</option>
+                    <option value="Mira-Bhayandar">Mira-Bhayandar</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Vikhroli">Vikhroli</option>
+                    <option value="Kanjurmarg">Kanjurmarg</option>
+                    <option value="Panvel">Panvel</option>
+                    <option value="Bandra">Bandra</option>
+                    <option value="Ulwe">Ulwe</option>
+                    <option value="Vile Parle">Vile Parle</option>
+                    <option value="Dahisar">Dahisar</option>
+                    <option value="Byculla">Byculla</option>
+                    <option value="Karjat">Karjat</option>
+                    <option value="Jogeshwari">Jogeshwari</option>
+                    <option value="Kurla">Kurla</option>
+                    <option value="Juhu">Juhu</option>
+                    <option value="Dadar">Dadar</option>
+                    <option value="Nerul">Nerul</option>
+                    <option value="Khar">Khar</option>
+                    <option value="Kamothe">Kamothe</option>
+                    <option value="Vashi">Vashi</option>
+                    <option value="Airoli">Airoli</option>
+                    <option value="Taloja">Taloja</option>
+                    <option value="Matunga">Matunga</option>
+                    <option value="Ghansoli">Ghansoli</option>
+                    <option value="Bhiwandi">Bhiwandi</option>
+                    <option value="Roadpali">Roadpali</option>
+                    <option value="Mankhurd">Mankhurd</option>
+                    <option value="Girgaon-Malabar">Girgaon-Malabar</option>
+                    <option value="Navi Mumbai">Navi Mumbai</option>
+                    <option value="Mahim">Mahim</option>
+                    <option value="Sion">Sion</option>
+                    <option value="Seawoods">Seawoods</option>
+                    <option value="Vidyavihar">Vidyavihar</option>
+                    <option value="Colaba">Colaba</option>
+                    <option value="Belapur">Belapur</option>
+                    <option value="Mazgaon-Chinchpokli">Mazgaon-Chinchpokli</option>
+                    <option value="Mumbra">Mumbra</option>
+                    <option value="Khanda Colony">Khanda Colony</option>
+                    <option value="Kalamboli">Kalamboli</option>
+                    <option value="Girgaon">Girgaon</option>
+                    <option value="Cumbala Hill">Cumbala Hill</option>
+                    <option value="Agripada">Agripada</option>
+                    <option value="Sanpada">Sanpada</option>
+                    <option value="Mandvi-Bhuleshwar">Mandvi-Bhuleshwar</option>
+                    <option value="Mazgaon">Mazgaon</option>
+                    <option value="Grant Road">Grant Road</option>
+                    <option value="Sandhurst">Sandhurst</option>
+                    <option value="Byculla-Mazgaon">Byculla-Mazgaon</option>
+                    <option value="Diva">Diva</option>
+                    <option value="Turbhe">Turbhe</option>
+                    <option value="Churchgate">Churchgate</option>
+                </select>
+
+
+            </div>
+        </section>
+
+        <!-- SECTION: Amenities -->
+        <section class="card section-amenities">
+            <div class="section-head">
+                <div class="section-icon"> <span class="material-icons">dashboard</span> </div>
+                <div>
+                    <h2>Amenities</h2>
+                    <p class="muted">Choose applicable amenities for the property</p>
+                </div>
+            </div>
+
+            <div class="amenities-grid amenity-container">
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/water.png" alt="24/7 Water Supply icon">
+                    <span>24/7 Water Supply</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/watchman.png" alt="Security Personnel icon">
+                    <span>Security Personnel</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/parking.png" alt="Car Parking icon">
+                    <span>Car Parking</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/firesys.png" alt="Fire Fighting Systems icon">
+                    <span>Fire Fighting Systems</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/ac.png" alt="24/7 Water Supply icon">
+                    <span>Centrally Air Conditioned</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/gymnasium.png" alt="24/7 Water Supply icon">
+                    <span>Gymnasium</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/swimming.png" alt="Swimming Pool icon">
+                    <span>Swimming Pool</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/club.png" alt="24/7 Water Supply icon">
+                    <span>Club House</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/park.png" alt="24/7 Water Supply icon">
+                    <span>Park</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/child_park.png" alt="Children's Play Area icon">
+                    <span>Children's Play Area</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/terrace.png" alt="Private Garden / Terrace icon">
+                    <span>Private Garden / Terrace</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/society.png" alt="Private Garden / Terrace icon">
+                    <span>Low Density Society</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/renovate.png" alt="Private Garden / Terrace icon">
+                    <span>Recently Renovated</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/wifi.png" alt="Private Garden / Terrace icon">
+                    <span>Internet/wi-fi connectivity</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/elevator.png" alt="Lift(s) icon">
+                    <span>Lift(s)</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/harvesting.png" alt="Rain Water Harvesting icon">
+                    <span>Rain Water Harvesting</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/gaspiped.png" alt="Piped Gas icon">
+                    <span>Piped Gas</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/purifier.png" alt="Water purifier">
+                    <span>Water purifier</span>
+                </button>
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/maintainence.png" alt="Maintenance Staff icon">
+                    <span>Maintenance Staff</span>
+                </button>
+
+
+
+
+
+
+
+
+
+
+
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/dumbbell.png" alt="Gym icon">
+                    <span>Gym</span>
+                </button>
+
+
+
+                <button type="button" class="amenity-btn" onclick="toggleAmenity(this)">
+                    <img src="assets/feng.png" alt="Feng Shui icon">
+                    <span>Feng Shui</span>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- PREDICT BUTTON -->
+        <div class="card actions-card">
+            <button id="predictBtn" class="btn-primary" onclick="submitData(event)">
+                <span class="material-icons">paid</span>
+                Predict Price
+            </button>
+        </div>
+
+        <!-- PREDICTION RESULT -->
+        <section id="predictionResult" class="result-card hidden">
+            <div class="result-inner">
+                <div class="result-icon"> <span class="material-icons">check_circle</span> </div>
+                <div class="result-body">
+                    <h3>Predicted Property Price</h3>
+                    <p id="resultPrice" class="price">₹ 0 Cr</p>
+                    <br>
+                    <p class="muted"> Result with 95% C.I & Based on the provided property details and amenities</p>
+                    <div id="weatherContainer"></div>
+                    <br>
+                    <div id="nearbyContainer" class="card hidden"></div>
+                    <!-- <a href="nearby-detail.html?area=${area}" class="view-detail-btn">
+                        View Full Nearby Insights →
+                    </a> -->
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- TAB 2: INSIGHTS DASHBOARD -->
+    <section id="tab2" class="tab-content">
+
+        <div class="card">
+
+            <div class="section-head">
+                <div class="section-icon">
+                    <span class="material-icons">public</span>
+                </div>
+                <div>
+                    <h2>Insights Dashboard</h2>
+                    <p class="muted">Interactive analytics & location-based insights</p>
+                </div>
+            </div>
+
+            <!-- Map Card -->
+            <div class="map-card">
+                <h3>Location-wise Price Map</h3>
+                <p class="muted">Interactive view of prices across locations</p>
+
+                <div class="plotly-map">
+                    <iframe src="https://my-api-production-0c7b.up.railway.app/map"
+                        style="width:100%; height:450px; border:none; border-radius:12px;">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Placeholder Charts -->
+            <div class="chart-row">
+                <div class="chart-placeholder">
+                    <img src="assets/bedrooms.png" alt="">
+                </div>
+                <div class="chart-placeholder">
+                    <img src="assets/wordcloud.png" alt="">
+                </div>
+            </div>
+
+            <div class="chart-row">
+                <div class="chart-placeholder">
+                    <img src="assets/luxury-score.png" alt="">
+                </div>
+                <div class="chart-placeholder">
+                    <img src="assets/pricepersqft.png" alt="">
+                </div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-placeholder">
+                    <img src="assets/citywise.png" alt="">
+                </div>
+                <!-- <div class="chart-placeholder">
+                    <img src="assets/corr.png" alt="">
+                </div> -->
+            </div>
+
+            
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- Keep your JS file (updated below) -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="demojs.js"></script>
+
+</body>
+
+</html>

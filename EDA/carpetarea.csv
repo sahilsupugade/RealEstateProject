@@ -1,0 +1,89 @@
+,price,price_per_sqft,super_built_up_area,carpet_area,builtup_area,facing,ownership,bedrooms,bathrooms,balcony,floor,furnish_type,prop_type,city,luxury_score,Others,Servant Room,Study Room,Pooja Room,Store Room,ageing,location_area
+94,93100000.0,27957.0,,3330.0,,West,Freehold,4.0,5.0,3.0,15.0,Unfurnished,Flat,Mumbai,376,0,1,0,0,0,Relatively New,Mumbai
+287,111500000.0,46652.0,,2390.0,,North-East,Co-operative Society,4.0,4.0,3.0,24.0,Furnished,Flat,Mumbai,104,0,1,1,1,0,Old,Parel
+1772,90000000.0,22500.0,,4000.0,,North-East,Freehold,4.0,4.0,1.0,26.0,Semifurnished,Flat,Mumbai,200,1,0,0,0,0,Old,Kandivali
+2593,90000000.0,22959.0,3920.0,2450.0,3430.0,East,Freehold,6.0,6.0,2.0,36.0,Furnished,Flat,Mumbai,278,0,1,0,1,0,Relatively Old,Mulund
+3301,101000000.0,30504.0,,3311.0,,East,Freehold,4.0,5.0,3.0,18.0,Semifurnished,Flat,Mumbai,348,1,1,0,1,0,Relatively New,Malad
+3491,90000000.0,30000.0,3000.0,2600.0,2800.0,East,Freehold,4.0,4.0,0.0,25.0,Semifurnished,Flat,Mumbai,278,0,1,1,1,1,Old,Kandivali
+4105,90000000.0,34000.0,,2647.0,,West,Freehold,3.0,4.0,3.0,20.0,Semifurnished,Flat,Mumbai,244,0,1,1,1,1,New,Parel
+4912,41000000.0,13666.0,,3000.0,,West,Freehold,4.0,4.0,1.0,0.0,Semifurnished,Flat,Thane,104,0,1,1,1,0,Relatively New,Kalyan-Dombivli
+5218,105000000.0,31712.0,,3311.0,,East,Freehold,4.0,6.0,3.0,0.0,Semifurnished,Flat,Mumbai,100,1,1,1,1,0,Relatively New,Malad
+5352,35000000.0,10937.0,,2500.0,3200.0,North,Co-operative Society,4.0,4.0,3.0,0.0,Furnished,House,Mumbai,60,0,0,0,0,1,Old,Thane
+5361,37500000.0,15000.0,,2500.0,,East,Freehold,4.0,4.0,3.0,0.0,Unfurnished,House,Navi Mumbai,204,0,0,0,0,0,Relatively Old,Kharghar
+5388,35000000.0,11667.0,,2500.0,3000.0,,Freehold,5.0,5.0,1.0,0.0,Semifurnished,House,Navi Mumbai,0,0,0,0,0,0,Undefined,Vashi
+5452,55000000.0,275000.0,,2500.0,3000.0,North-East,Leasehold,4.0,4.0,3.0,0.0,Unfurnished,House,Mumbai,322,1,1,1,1,0,Old,Chembur
+5471,80000000.0,18182.0,,3700.0,4400.0,East,Freehold,8.0,5.0,3.0,0.0,Semifurnished,House,Mumbai,0,0,0,0,0,0,Undefined,Vasai-Virar
+5581,18000000.0,3600.0,,4700.0,5000.0,North-East,Freehold,5.0,4.0,2.0,0.0,Furnished,House,Thane,0,0,0,0,0,0,Undefined,Thane
+5596,110000000.0,31428.0,,3500.0,,East,Leasehold,4.0,4.0,0.0,0.0,Unfurnished,House,Mumbai,38,0,1,1,1,1,Relatively Old,Andheri
+5613,25000000.0,7143.0,,2700.0,3500.0,,Freehold,4.0,4.0,3.0,0.0,Semifurnished,House,Mumbai,0,0,0,0,0,0,Undefined,Vasai-Virar
+5637,60000000.0,24000000.0,,3000.0,,,Freehold,4.0,3.0,3.0,0.0,,House,Mumbai,0,0,0,0,0,0,Old,Vasai-Virar
+5640,95000000.0,19000.0,,3500.0,,East,Co-operative Society,4.0,4.0,3.0,0.0,Furnished,House,Thane,102,1,1,1,1,0,Relatively Old,Thane
+5642,10800000.0,3600.0,,3000.0,,,Freehold,6.0,3.0,1.0,0.0,,House,Thane,0,0,0,0,0,0,Old,Thane
+5702,110000000.0,26829.0,,2500.0,3500.0,East,Freehold,6.0,7.0,2.0,0.0,Furnished,House,Mumbai,178,0,0,1,1,0,Relatively Old,Chembur
+5705,65000000.0,10156.0,,2850.0,3250.0,East,Freehold,4.0,4.0,3.0,0.0,Furnished,House,Mumbai,184,0,1,0,0,1,Old,Goregaon
+5743,70000000.0,10000.0,,7000.0,,North-East,Power of Attorney,7.0,7.0,3.0,0.0,,House,Mumbai,94,0,0,0,0,0,Old,Andheri
+5802,75000000.0,60000.0,,2400.0,3000.0,North-East,Freehold,3.0,3.0,1.0,0.0,Semifurnished,House,Mumbai,278,1,0,0,0,0,Old,Powai
+5816,97500000.0,26785.0,,2600.0,3640.0,North,Freehold,6.0,6.0,1.0,0.0,Semifurnished,House,Mumbai,268,0,0,0,0,1,Old,Chembur
+5860,99900000.0,17839.0,,3500.0,4480.0,East,Freehold,7.0,5.0,1.0,0.0,Semifurnished,House,Mumbai,154,0,0,0,1,0,Old,Chembur
+5926,90000000.0,25714.0,,3500.0,4000.0,East,Freehold,5.0,5.0,2.0,0.0,Furnished,House,Mumbai,246,0,1,0,1,1,Old,Chembur
+5936,45000000.0,12857.0,,2550.0,2850.0,East,Freehold,4.0,4.0,0.0,0.0,Semifurnished,House,Mumbai,186,0,0,0,1,0,Old,Chembur
+6020,78000000.0,1610.0,,4500.0,,East,Freehold,4.0,4.0,3.0,0.0,Semifurnished,House,Mumbai,296,0,1,0,0,0,Relatively Old,Chembur
+6034,100000000.0,25000.0,,3500.0,3800.0,East,Freehold,5.0,5.0,2.0,0.0,Semifurnished,House,Mumbai,180,0,0,0,1,0,Relatively Old,Chembur
+6035,72500000.0,36250.0,,2400.0,3750.0,East,Freehold,5.0,4.0,2.0,0.0,Unfurnished,House,Mumbai,142,0,0,1,0,0,Old,Chembur
+6037,70000000.0,29166.0,,2400.0,,,Freehold,3.0,5.0,0.0,0.0,Unfurnished,House,Mumbai,0,0,0,0,0,0,Old,Ghatkopar
+6045,68000000.0,22666.0,,3000.0,5000.0,East,Freehold,4.0,5.0,3.0,0.0,Unfurnished,House,Thane,102,1,1,1,1,0,Old,Thane
+6064,85000000.0,31481.0,,2700.0,,West,Freehold,3.0,3.0,1.0,0.0,Unfurnished,House,Thane,70,1,0,1,0,0,Old,Mumbai
+6116,15000000.0,5000.0,,3000.0,,East,Freehold,3.0,4.0,1.0,0.0,Semifurnished,House,Thane,48,0,0,0,1,0,Old,Thane
+6118,75000000.0,7500.0,,6000.0,8000.0,North,Freehold,5.0,6.0,3.0,0.0,,House,Navi Mumbai,78,0,0,0,0,0,New,Kharghar
+6123,11000000.0,4230.0,,2600.0,2800.0,East,Freehold,6.0,5.0,1.0,0.0,Unfurnished,House,Mumbai,54,0,0,0,0,0,New,Vasai-Virar
+6128,69400000.0,806.0,,4000.0,8000.0,North,Co-operative Society,4.0,5.0,3.0,0.0,Semifurnished,House,Navi Mumbai,154,0,1,1,1,0,Relatively New,Kharghar
+6149,55000000.0,22000.0,,2500.0,3200.0,East,Freehold,4.0,4.0,1.0,0.0,Unfurnished,House,Mumbai,132,0,0,0,1,0,Old,Chembur
+6180,95000000.0,19000.0,,3000.0,,,Co-operative Society,4.0,4.0,3.0,0.0,Furnished,House,Mumbai,214,0,1,1,1,1,Old,Borivali
+6182,69000000.0,17037.0,,3330.0,,West,Freehold,5.0,5.0,3.0,0.0,Unfurnished,House,Thane,228,0,1,1,1,1,New,Bhiwandi
+6185,49000000.0,163333.0,,3144.0,,East,Freehold,4.0,5.0,3.0,0.0,Unfurnished,House,Thane,240,0,1,1,1,1,New,Bhiwandi
+6192,90000000.0,30000.0,,2500.0,3000.0,East,Freehold,4.0,4.0,3.0,0.0,Furnished,House,Thane,352,0,1,1,0,1,Relatively New,Thane
+6195,59000000.0,21852.0,,3000.0,,East,Freehold,4.0,4.0,3.0,0.0,Unfurnished,House,Thane,250,0,1,0,1,1,New,Bhiwandi
+6205,25100000.0,9296.0,,2700.0,,North-East,Freehold,3.0,3.0,2.0,0.0,Unfurnished,House,Navi Mumbai,102,0,0,0,0,0,Relatively Old,Belapur
+6212,79000000.0,20256.0,,2727.0,,East,Co-operative Society,4.0,3.0,2.0,0.0,Furnished,House,Thane,102,1,0,1,1,0,Old,Mumbai
+6214,63500000.0,22678.0,,2550.0,2950.0,North-West,Co-operative Society,3.0,4.0,2.0,0.0,Unfurnished,House,Thane,196,0,1,0,0,0,Old,Thane
+6225,53500000.0,16984.0,,3150.0,,East,Freehold,4.0,4.0,3.0,0.0,Unfurnished,House,Mumbai,304,0,1,1,1,1,New,Others
+6228,72500000.0,29000.0,,2500.0,3500.0,West,Freehold,5.0,4.0,1.0,0.0,Semifurnished,House,Thane,312,0,1,1,0,0,Old,Thane
+6240,37000000.0,9250.0,,2750.0,,West,Co-operative Society,3.0,4.0,3.0,0.0,Furnished,House,Mumbai,314,1,0,0,0,0,Old,Mira-Bhayandar
+6244,25000000.0,8333.0,,5000.0,6000.0,East,Freehold,1.0,1.0,3.0,0.0,Unfurnished,House,Navi Mumbai,0,1,0,0,1,0,Relatively New,Kalyan-Dombivli
+6246,45000000.0,15000.0,,3000.0,,West,Freehold,5.0,6.0,3.0,0.0,Furnished,House,Mumbai,94,1,1,1,1,0,Relatively Old,Thane
+6256,110000000.0,34064.0,,3000.0,5000.0,North-East,Co-operative Society,7.0,7.0,3.0,0.0,Furnished,House,Navi Mumbai,98,0,1,0,1,1,Old,Kharghar
+6274,30000000.0,8333.0,,3000.0,3600.0,East,Freehold,3.0,3.0,3.0,0.0,Unfurnished,House,Navi Mumbai,102,0,1,0,0,0,Under Construction,Others
+6276,110000000.0,34064.0,,3228.0,4357.0,North-East,Freehold,8.0,8.0,3.0,0.0,Semifurnished,House,Navi Mumbai,106,0,1,0,1,1,Old,Kharghar
+6278,60000000.0,13935.0,,2500.0,3500.0,North-East,Freehold,4.0,4.0,1.0,0.0,Semifurnished,House,Navi Mumbai,72,1,0,0,0,0,Old,Nerul
+6286,25000000.0,6250.0,,3300.0,,East,Freehold,4.0,3.0,2.0,0.0,Semifurnished,House,Mumbai,102,1,1,1,1,0,Old,Vasai-Virar
+6294,41100000.0,13700.0,,2730.0,,North-East,Freehold,4.0,4.0,3.0,0.0,Unfurnished,House,Mumbai,330,0,0,0,0,1,Under Construction,Mira-Bhayandar
+6297,45000000.0,12857.0,,3500.0,,West,Freehold,4.0,4.0,3.0,0.0,Semifurnished,House,Mumbai,124,0,0,0,0,1,Relatively Old,Thane
+6311,65000000.0,24621.0,,2640.0,,East,Leasehold,3.0,3.0,3.0,0.0,Furnished,House,Thane,204,0,1,0,1,1,Relatively New,Thane
+6360,30000000.0,8571.0,,2800.0,3500.0,West,Co-operative Society,4.0,4.0,2.0,0.0,,House,Thane,292,0,0,1,0,1,Old,Thane
+6361,65000000.0,26000.0,,2500.0,3500.0,West,Co-operative Society,4.0,4.0,2.0,0.0,Semifurnished,House,Thane,326,0,1,0,0,1,Old,Thane
+6362,72500000.0,29000.0,,2500.0,3500.0,West,Co-operative Society,5.0,5.0,2.0,0.0,Furnished,House,Thane,332,0,1,0,0,1,Old,Thane
+6364,75000000.0,25000.0,,3000.0,3500.0,West,Co-operative Society,4.0,4.0,3.0,0.0,Furnished,House,Thane,344,0,1,1,1,0,Relatively Old,Thane
+6365,72500000.0,29000.0,,2500.0,,West,Co-operative Society,4.0,4.0,2.0,0.0,Semifurnished,House,Thane,344,0,1,0,1,0,Old,Thane
+6366,90000000.0,27272.0,,3300.0,4000.0,West,Co-operative Society,4.0,4.0,3.0,0.0,Furnished,House,Thane,332,0,1,0,0,1,Relatively Old,Thane
+6369,19000000.0,2617.0,,3000.0,3500.0,East,Freehold,4.0,5.0,2.0,0.0,Furnished,House,Thane,102,1,1,1,1,0,Relatively New,Karjat
+6377,38000000.0,5846.0,,4500.0,5000.0,East,Freehold,6.0,6.0,3.0,0.0,Furnished,House,Thane,102,1,1,1,1,0,New,Karjat
+6378,19900000.0,2192.0,,3200.0,,East,Freehold,4.0,4.0,3.0,0.0,Unfurnished,House,Thane,264,1,1,1,0,0,New,Karjat
+6380,20000000.0,2203.0,,3200.0,,East,Freehold,4.0,4.0,3.0,0.0,Unfurnished,House,Thane,250,1,1,0,0,0,New,Karjat
+6383,35000000.0,5384.0,,4000.0,,East,Freehold,6.0,8.0,3.0,0.0,Unfurnished,House,Thane,102,1,1,1,0,0,New,Karjat
+6386,80000000.0,4444.0,,4500.0,,East,Freehold,4.0,6.0,3.0,0.0,Furnished,House,Thane,288,1,1,1,1,0,Relatively New,Karjat
+6387,82500000.0,4583.0,,4000.0,,East,Freehold,4.0,6.0,3.0,0.0,Furnished,House,Thane,270,1,1,1,1,0,Relatively New,Karjat
+6483,69500000.0,32284.0,,6000.0,10000.0,West,Freehold,4.0,5.0,3.0,0.0,Semifurnished,House,Navi Mumbai,148,0,1,1,1,0,Relatively New,Kharghar
+6515,25000000.0,9615.0,,2600.0,2700.0,East,Freehold,3.0,3.0,1.0,0.0,Semifurnished,House,Thane,144,0,0,0,1,0,Relatively Old,Thane
+6546,20100000.0,2214.0,,3200.0,,East,Freehold,4.0,4.0,3.0,0.0,Unfurnished,House,Thane,264,1,1,0,0,0,New,Karjat
+6847,110000000.0,23913.0,4600.0,4000.0,4400.0,South-West,Freehold,6.0,6.0,2.0,0.0,Unfurnished,Flat,Mumbai,252,0,0,0,0,1,Relatively New,Thane
+6954,55000000.0,22000.0,,2500.0,,South-East,Freehold,4.0,4.0,3.0,23.0,Unfurnished,Flat,Mumbai,400,0,1,1,0,0,Relatively New,Thane
+7218,97500000.0,38491.0,,2533.0,,West,Freehold,3.0,3.0,2.0,19.0,Semifurnished,Flat,Mumbai,268,0,0,0,0,0,Relatively New,Parel
+7647,68500000.0,10538.0,,2850.0,,,Freehold,4.0,5.0,1.0,0.0,,House,Mumbai,0,0,0,0,0,0,Relatively New,Goregaon
+7804,80000000.0,20000.0,,4000.0,,West,Co-operative Society,5.0,4.0,0.0,14.0,Unfurnished,Flat,Mumbai,216,0,1,0,0,0,Relatively Old,Malad
+7839,80000000.0,32840.0,,2436.0,,East,Co-operative Society,6.0,8.0,2.0,0.0,Unfurnished,Flat,Mumbai,238,0,0,0,0,0,Relatively New,Dahisar
+8532,85000000.0,31481.0,,2700.0,,East,Freehold,4.0,6.0,0.0,0.0,Furnished,Flat,Mumbai,166,0,1,0,1,1,Old,Malad
+8557,92000000.0,38333.0,,2400.0,,East,Freehold,4.0,4.0,3.0,2.0,Furnished,Flat,Mumbai,148,0,1,0,0,0,Old,Vile Parle
+9037,70000000.0,23333.0,,2750.0,3000.0,North-East,Freehold,5.0,5.0,1.0,0.0,Furnished,House,Mumbai,0,0,0,0,0,0,Undefined,Mumbai
+9068,54900000.0,22408.0,,2450.0,,South-West,Co-operative Society,4.0,5.0,3.0,3.0,Furnished,Flat,Mumbai,174,1,1,1,1,0,Old,Jogeshwari
+9456,95000000.0,28692.0,,3311.0,,South,Freehold,4.0,6.0,3.0,6.0,Semifurnished,Flat,Mumbai,222,1,1,1,1,0,Relatively New,Malad
+9680,60000000.0,24630.0,,2436.0,,South-East,Freehold,4.0,4.0,3.0,22.0,Unfurnished,Flat,Mumbai,104,1,1,1,1,0,Relatively Old,Goregaon

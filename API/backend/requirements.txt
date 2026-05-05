@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn==1.7.1
+category_encoders
+joblib
+requests
+python-dotenv
+plotly
