@@ -7,6 +7,14 @@ const categoryIcons = {
   "Bank": "account_balance"
 };
 
+const cityAreas = {
+  "Mumbai": ["Kandivali", "Powai", "Andheri", "Malad", "Chembur", "Goregaon", "Borivali", "Mulund", "Ghatkopar", "Wadala", "Santacruz", "Bhandup", "Parel", "Worli", "Vikhroli", "Kanjurmarg", "Bandra", "Vile Parle", "Dahisar", "Byculla", "Jogeshwari", "Kurla", "Juhu", "Dadar", "Khar", "Matunga", "Mankhurd", "Girgaon-Malabar", "Mahim", "Sion", "Vidyavihar", "Colaba", "Mazgaon-Chinchpokli", "Girgaon", "Cumbala Hill", "Agripada", "Mandvi-Bhuleshwar", "Mazgaon", "Grant Road", "Sandhurst", "Byculla-Mazgaon", "Churchgate"],
+
+  "Thane": ["Thane", "Kalyan-Dombivli", "Bhiwandi", "Mumbra", "Diva"],
+
+  "Navi Mumbai": ["Navi Mumbai", "Kharghar", "Panvel", "Ulwe", "Nerul", "Kamothe", "Vashi", "Airoli", "Taloja", "Ghansoli", "Roadpali", "Seawoods", "Belapur", "Khanda Colony", "Kalamboli", "Sanpada", "Turbhe"]
+};
+
 /* ---------------------------
    Existing logic (preserved + slight UI hooks)
    --------------------------- */
@@ -83,10 +91,10 @@ async function submitData(event) {
   try {
     // Keep same endpoint as original
     const response = await fetch("https://my-api-production-0c7b.up.railway.app/predict", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(jsonObject)
-});
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(jsonObject)
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -107,13 +115,74 @@ async function submitData(event) {
 
     resultCard.classList.remove("hidden");
 
+    // --------------------
+    // PROPERTY RECOMMENDATIONS
+    // --------------------
+    const recContainer = document.getElementById("recommendationContainer");
+
+    if (result.recommendations && result.recommendations.length > 0) {
+
+      recContainer.classList.remove("hidden");
+
+      recContainer.innerHTML = `
+      <br><br>
+    <h2>Recommended Properties</h2>
+    <div id="recGrid"></div>
+  `;
+
+      const grid = document.getElementById("recGrid");
+
+      if (!grid) {
+        console.error("Grid not found!");
+        return;
+      }
+
+      result.recommendations.forEach(item => {
+        const card = `
+      <div class="property-card">
+        <div class="card-title">${item.property_name || "Property"}</div>
+        <div class="card-price">₹ ${item.price} Cr</div>
+        <a href="${item.link}" target="_blank" class="view-btn">
+          View Property
+        </a>
+      </div>
+    `;
+        grid.innerHTML += card;
+      });
+
+    } else {
+      recContainer.classList.remove("hidden");
+      recContainer.innerHTML = "<p>No recommendations found.</p>";
+    }
+
     document.getElementById("nearbyContainer").innerHTML =
       "<h2 style='color:red'>TEST NEARBY DISPLAY</h2>";
     console.log("AQI RAW:", result.weather.aqi);
     console.log("WEATHER:", result.weather);
     console.log("AQI:", result.aqi);
+
     // Display Weather Info
     // Gate ONLY on weather (mandatory)
+    // Remove old title if already exists
+    const oldWeatherTitle = document.getElementById("weatherTitle");
+    if (oldWeatherTitle) oldWeatherTitle.remove();
+
+    // Create wrapper (for spacing)
+    const weatherTitleWrapper = document.createElement("div");
+    weatherTitleWrapper.id = "weatherTitle";
+
+    // Add 2 <br> + title
+    weatherTitleWrapper.innerHTML = `
+  <br><br><br><br>
+  <h2>Weather & Air Quality</h2>
+`;
+
+    // Insert ABOVE weather container
+    const weatherDiv = document.getElementById("weatherContainer");
+    if (weatherDiv) {
+      weatherDiv.parentNode.insertBefore(weatherTitleWrapper, weatherDiv);
+    }
+
     if (result.weather) {
 
       const weatherDiv = document.getElementById("weatherContainer");
@@ -121,7 +190,7 @@ async function submitData(event) {
       if (!weatherDiv) return;
 
       // AQI is OPTIONAL
-      let aqiHTML = "";
+      let aqiHTML = "<br><br>";
 
       if (result.aqi && result.aqi.aqi_index !== undefined) {
         aqiHTML = `
@@ -205,6 +274,22 @@ async function loadNearby(area) {
   const container = document.getElementById("nearbyContainer");
   if (!container || !area) return;
 
+  // Remove old title if exists (avoid duplicates)
+  const oldNearbyTitle = document.getElementById("nearbyTitle");
+  if (oldNearbyTitle) oldNearbyTitle.remove();
+
+  // Create title wrapper
+  const nearbyTitleWrapper = document.createElement("div");
+  nearbyTitleWrapper.id = "nearbyTitle";
+
+  nearbyTitleWrapper.innerHTML = `
+  <br><br><br><br>
+  <h2>Nearby Infrastructure Summary</h2>
+`;
+
+  // Insert ABOVE container
+  container.parentNode.insertBefore(nearbyTitleWrapper, container);
+
   container.classList.remove("hidden");
 
   container.innerHTML = "<p>Loading nearby insights...</p>";
@@ -223,7 +308,6 @@ async function loadNearby(area) {
 
     let html = `
       <div class="section-head">
-        <h2>Nearby Infrastructure Summary</h2>
         <p class="muted">Curated categories only</p>
       </div>
       <div class="direction-container">
@@ -274,6 +358,34 @@ function toggleCategory(card) {
   list.classList.toggle("hidden");
 }
 
+function updateAreas() {
+  const city = document.getElementById("city").value;
+  const areaSelect = document.getElementById("area");
+
+  // Clear options
+  areaSelect.innerHTML = '<option value="">-- Select a location --</option>';
+
+  const areas = cityAreas[city] || [];
+
+  areas.forEach(a => {
+    const opt = document.createElement("option");
+    opt.value = a;
+    opt.textContent = a;
+    areaSelect.appendChild(opt);
+  });
+
+  // Add Others
+  const other = document.createElement("option");
+  other.value = "Others";
+  other.textContent = "Others";
+  areaSelect.appendChild(other);
+
+  // 🔥 IMPORTANT (because you're using Select2)
+  if (window.jQuery && $.fn.select2) {
+    $('#area').trigger('change'); // refresh UI
+  }
+}
+
 /* ---------------------------
    UI Glue: Tabs + Select2 + JSON collapse
    --------------------------- */
@@ -308,4 +420,13 @@ document.addEventListener("DOMContentLoaded", function () {
       if (activeTab) activeTab.classList.add("active-tab-content");
     });
   });
+  // City → Area filtering
+  const citySelect = document.getElementById("city");
+
+  if (citySelect) {
+    citySelect.addEventListener("change", updateAreas);
+  }
+
+  // Run once on load (default Mumbai)
+  updateAreas();
 });

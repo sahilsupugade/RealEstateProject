@@ -738,3 +738,65 @@ main.tab-content {
   margin-right: 6px;
   color: #4f46e5;
 }
+
+/* Container */
+#recommendationContainer {
+  margin-top: 25px;
+}
+
+/* Grid layout */
+#recGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 15px;
+}
+
+/* Card */
+.property-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Hover effect */
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Title */
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f766e;
+}
+
+/* Price */
+.card-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #111827;
+}
+
+/* Button */
+.view-btn {
+  margin-top: auto;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.view-btn:hover {
+  background: #1d4ed8;
+}

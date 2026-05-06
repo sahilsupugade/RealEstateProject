@@ -39,6 +39,37 @@ coords_df["geo_place"] = coords_df["geo_place"].str.strip().str.lower()
 
 OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
+recommendation_df = pd.read_csv(
+    os.path.join(BASE_DIR, "feature_selection_data.csv")
+)
+
+def recommend_properties(user_input_df, top_n=5):
+
+    df = recommendation_df.copy()
+
+    # Basic filtering (important features)
+    filtered = df[
+        (df["city"] == user_input_df["city"].iloc[0]) &
+        (df["prop_type"] == user_input_df["prop_type"].iloc[0]) &
+        (df["bedrooms"] == user_input_df["bedrooms"].iloc[0])
+    ]
+
+    if filtered.empty:
+        filtered = df.copy()  # fallback
+
+    # similarity score (basic)
+    filtered["score"] = (
+        abs(filtered["carpet_area"] - user_input_df["carpet_area"].iloc[0])
+        + abs(filtered["bathrooms"] - user_input_df["bathrooms"].iloc[0])
+    )
+
+    recommendations = (
+        filtered.sort_values("score")
+        .head(top_n)
+    )
+
+    return recommendations[["property_name", "price", "link"]].to_dict(orient="records")
+
 def get_coordinates(location_area: str):
     row = coords_df[coords_df["geo_place"] == location_area.strip().lower()]
     if row.empty:
@@ -217,12 +248,15 @@ def predict(data: Input):
         except Exception as e:
             print("AQI fetch failed:", e)
 
+    recommendations = recommend_properties(input_df)
+
     return {
     "prediction": final_price,
     "lower": lower,
     "upper": upper,
     "weather": weather,
-    "aqi": aqi
+    "aqi": aqi,
+    "recommendations": recommendations
     }
 
 @app.get("/nearby/{area}")
